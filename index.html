@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Ek Jholoke Kolkata | Digital Heritage & Culture Archive</title>
+    <title>Ek Jholoke Kolkata: Home</title>
 
-    <!-- CANONICAL LINK (Signals GitHub as the Master Authority) -->
-    <link rel="canonical" href="https://ekjholokekolkata.github.io" />
+    <!-- CANONICAL LINK (Fixes the "Not Indexed" issue) -->
+    <link rel="canonical" href="https://ekjholokekolkata.github.io/" />
 
     <!-- 1. SITE NAME SCHEMA -->
     <script type="application/ld+json">
@@ -15,12 +15,15 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Ek Jholoke Kolkata",
-      "alternateName": ["Ek Jholoke", "EJK"],
-      "url": "https://ekjholokekolkata.github.io/",
-      "sameAs": [
-        "https://ekjholokekolkata.page.gd/",
-        "https://www.instagram.com/ek_jholoke_kolkata/",
-        "https://www.facebook.com/profile.php?id=61556632556404"
+      "alternateName": [
+        "Ek Jholoke",
+        "EJK"
+      ],
+      "url": "https://ekjholokekolkata.page.gd/",
+      "image": [
+        "https://ekjholokekolkata.github.io//heritagetrail.jpg",
+        "https://ekjholokekolkata.github.io//culinarysoul.jpg",
+        "https://ekjholokekolkata.github.io//hidden.jpg"
       ]
     }
     </script>
@@ -28,16 +31,17 @@
     <!-- 2. FAVICON -->
     <link rel="icon" type="image/png" sizes="48x48" href="fav.png">
     <link rel="apple-touch-icon" href="fav.png">
+    <link rel="shortcut icon" href="fav.png">
 
-    <!-- Meta Description -->
-    <meta name="description" content="Ek Jholoke Kolkata — a digital journey through the soul of the City of Joy and the 23 districts of West Bengal. Discover heritage, culinary stories, and hidden gems.">
+    <!-- Meta Description for SEO -->
+    <meta name="description" content="Ek Jholoke Kolkata — more than just a page, it's a journey through the soul of a city and the 23 districts of West Bengal. From North Kolkata heritage to the beauty of Darjeeling.">
 
     <!-- SEO Keywords -->
-    <meta name="keywords" content="Ek Jholoke Kolkata, Bengal Heritage, Kolkata Culture, City of Joy, West Bengal Tourism, Kolkata Photography, North Kolkata, Bonedi Bari">
+    <meta name="keywords" content="Ek Jholoke Kolkata, ek jholoke kolkata, ek joloke kolkata, ek jhalake kolkata, kolkata, calcutta, Bengal Heritage, Kolkata Culture, City of Joy, West Bengal Tourism">
 
     <!-- Open Graph for Social Media -->
     <meta property="og:title" content="Ek Jholoke Kolkata | A Bengal Cultural Story">
-    <meta property="og:description" content="Experience the soul of Kolkata and the heritage of West Bengal.">
+    <meta property="og:description" content="Ek Jholoke Kolkata — more than just a journey, it's the soul of the city.">
     <meta property="og:image" content="fav.png">
     <meta property="og:type" content="website">
 
@@ -46,28 +50,32 @@
 
     <style>
     html {scroll-behavior:smooth;}
+
     body{
-        margin:0;
-        font-family:'Segoe UI',sans-serif;
-        background:linear-gradient(to bottom,#000000,#0d0d0d);
-        color:white;
-        text-align:center;
-        overflow-x:hidden;
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(to bottom,#000000,#0d0d0d);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
     }
 
-    /* NETFLIX STYLE INTRO */
     #intro{
-        position:fixed;
-        top: 0; left: 0;
-        width:100vw; height:100vh;
-        background:black;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        z-index:9999;
-        animation:fadeOut 0.5s ease forwards;
-        animation-delay:2s;
+    position:fixed;
+    top: 0;
+    left: 0;
+    width:100vw; 
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    overflow:hidden;
+    animation:fadeOut 0.5s ease forwards;
+    animation-delay:2s; /* Adjusted to 2s */
     }
+
     .beam{position:absolute;width:2px;height:100%;background:linear-gradient(to bottom,transparent,#E50914,transparent);animation:beamMove 1s ease forwards;}
     .beam:nth-child(1){left:30%;animation-delay:0.1s}
     .beam:nth-child(2){left:40%;animation-delay:0.1s}
@@ -76,80 +84,221 @@
     .beam:nth-child(5){left:70%;animation-delay:0.5s}
 
     @keyframes beamMove{
-        0%{opacity:0;transform:scaleY(0)}
-        50%{opacity:1;transform:scaleY(1)}
-        100%{opacity:0;transform:scaleY(1.2)}
+    0%{opacity:0;transform:scaleY(0)}
+    50%{opacity:1;transform:scaleY(1)}
+    100%{opacity:0;transform:scaleY(1.2)}
     }
+
     .netflix-text{
-        font-family:'Bebas Neue',sans-serif;
-        font-size:clamp(1.5rem, 8vw, 3rem); 
-        color:#E50914;
-        opacity:0;
-        animation:textReveal 1s ease forwards;
-        animation-delay:0.8s;
-        text-shadow:0 0 20px #E50914;
+    position:relative;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(1.5rem, 8vw, 3rem); 
+    letter-spacing:clamp(2px, 1.2vw, 6px);
+    color:#E50914;
+    display: block;
+    width: 90%; 
+    max-width: 800px;
+    text-align:center;
+    opacity:0;
+    animation:textReveal 1s ease forwards;
+    animation-delay:0.8s; /* Adjusted delay to fit 2s window */
+    text-shadow:0 0 20px #E50914;
+    margin: 0 auto;
+    box-sizing: border-box;
     }
-    @keyframes textReveal{0%{opacity:0;transform:scale(0.85)}100%{opacity:1;transform:scale(1)}}
+
+    @keyframes textReveal{
+    0%{opacity:0;transform:scale(0.85)}
+    100%{opacity:1;transform:scale(1)}
+    }
+
     @keyframes fadeOut{to{opacity:0;visibility:hidden}}
 
-    /* MAIN STYLING */
     section{padding:90px 20px;max-width:1100px;margin:auto}
+
     h1,h2,h3{color:#ffd700}
+
     header{
-        position:sticky; top:0;
-        backdrop-filter:blur(10px);
-        background:rgba(0,0,0,0.6);
-        padding:15px;
-        z-index:999;
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(10px);
+    background:rgba(0,0,0,0.6);
+    padding:15px;
+    z-index:999;
     }
+
     .logo{font-size:1.6rem;font-weight:bold;color:#ffd700}
+
     nav{margin-top:10px}
-    nav a{color:white;text-decoration:none;margin:5px 15px;font-size:0.9rem;position:relative;}
-    nav a::after{content:"";position:absolute;left:0;bottom:-5px;width:0%;height:2px;background:#E50914;transition:0.4s ease;}
+
+    nav a{
+    color:white;
+    text-decoration:none;
+    margin:5px 15px;
+    font-size:0.9rem;
+    position:relative;
+    }
+
+    nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:#E50914;
+    transition:0.4s ease;
+    }
+
     nav a:hover::after{width:100%}
 
     .hero{
-        height:100vh;
-        display:flex; flex-direction:column; justify-content:center; align-items:center;
-        background:url('howrahbridge.jpg') center/cover no-repeat;
-        position:relative;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:url('howrahbridge.jpg') center/cover no-repeat;
+    position:relative;
     }
-    .hero::before{content:"";position:absolute;width:100%;height:100%;background:rgba(0,0,0,0.6);}
+
+    .hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    }
+
     .hero-content{position:relative;z-index:2}
-    .btn{display:inline-block;padding:12px 25px;background:#E50914;border-radius:30px;text-decoration:none;color:white;transition:0.4s;}
+
+    .hero h1{font-size:2.5rem}
+
+    .btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#E50914;
+    border-radius:30px;
+    text-decoration:none;
+    color:white;
+    transition:0.4s;
+    }
+
     .btn:hover{background:#b20710;transform:scale(1.05)}
 
     .grid{display:grid;grid-template-columns:1fr;gap:25px}
-    .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:30px;border-radius:15px;transition:0.4s ease;}
+
+    .card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    padding:30px;
+    border-radius:15px;
+    transition:0.4s ease;
+    overflow:hidden;
+    text-decoration: none;
+    display: block;
+    }
+
     .card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(229,9,20,0.3)}
 
     .explore-card {
-        min-height: 250px; display: flex; flex-direction: column; justify-content: flex-end;
-        background-size: cover !important; background-position: center !important;
-        position: relative; border: none; text-decoration: none;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-size: cover !important;
+      background-position: center !important;
+      position: relative;
+      border: none;
     }
-    .explore-card::before {content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2)); z-index: 1;}
-    .explore-card h3, .explore-card p {position: relative; z-index: 2; margin: 5px 0;}
 
-    .gallery {display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 500px; margin: 0 auto;}
-    .gallery a {aspect-ratio: 1 / 1; background: #222; border-radius: 8px; transition: 0.4s; background-size: cover !important; display: block; opacity: 0;}
-    
+    .explore-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
+      z-index: 1;
+    }
+
+    .explore-card h3 {
+      position: relative;
+      z-index: 2;
+      margin: 5px 0;
+      color: #ffd700;
+    }
+
+    .explore-card p {
+      position: relative;
+      z-index: 2;
+      margin: 5px 0;
+      color: white !important;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .gallery a {
+      aspect-ratio: 1 / 1;
+      background: #222;
+      border-radius: 8px;
+      transition: 0.4s;
+      background-size: cover !important;
+      background-position: center !important;
+      display: block;
+      opacity: 0; 
+    }
+
     .animate-west { transform: translateX(-100px); }
     .animate-east { transform: translateX(100px); }
     .animate-north { transform: translateY(-100px); }
     .animate-south { transform: translateY(100px); }
     .animate-fade { transform: scale(0.8); }
-    .show-card { opacity: 1 !important; transform: translate(0) scale(1) !important; transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1); }
 
-    footer{background:#0a0a0a;padding:25px 15px;border-top:1px solid rgba(255,255,255,0.1);}
-    .footer-container{display:flex;flex-direction:column;align-items:center;gap:15px;}
+    .show-card {
+      opacity: 1 !important;
+      transform: translate(0) scale(1) !important;
+      transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
+    }
+
+    .gallery a:hover {
+      transform: scale(1.05) !important;
+    }
+
+    footer{
+    background:#0a0a0a;
+    padding:25px 15px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+    }
+
     .footer-text{font-size:0.9rem;color:#aaa}
-    .social-icons a{color:white;margin:0 12px;font-size:1.4rem;transition:0.3s ease;}
+
+    footer span{color:#ffd700}
+
+    .social-icons a{
+    color:white;
+    margin:0 12px;
+    font-size:1.4rem;
+    transition:0.3s ease;
+    }
+
     .social-icons a:hover{color:#E50914;transform:scale(1.2)}
 
     @media(min-width:768px){
-        .grid{grid-template-columns:repeat(3,1fr)}
-        .footer-container{flex-direction:row;justify-content:space-between;max-width:1100px;margin:auto}
+    .grid{grid-template-columns:repeat(3,1fr)}
+    .footer-container{flex-direction:row;justify-content:space-between;max-width:1100px;margin:auto}
     }
     </style>
 </head>
@@ -157,7 +306,11 @@
 <body>
 
 <div id="intro" aria-hidden="true">
-    <div class="beam"></div><div class="beam"></div><div class="beam"></div><div class="beam"></div><div class="beam"></div>
+    <div class="beam"></div>
+    <div class="beam"></div>
+    <div class="beam"></div>
+    <div class="beam"></div>
+    <div class="beam"></div>
     <div class="netflix-text">EK JHOLOKE KOLKATA</div>
 </div>
 
@@ -165,7 +318,6 @@
     <div class="logo">Ek Jholoke Kolkata</div>
     <nav>
         <a href="https://ekjholokekolkata.github.io/">Home</a>
-        <!-- Absolute links to your other domain for indexing -->
         <a href="https://ekjholokekolkata.page.gd/about.php">About</a>
         <a href="https://ekjholokekolkata.page.gd/explore.php">Explore</a>
         <a href="https://ekjholokekolkata.page.gd/gallery.php">Gallery</a>
@@ -181,15 +333,155 @@
     </div>
 </section>
 
+<!-- THE SOUL SECTION -->
 <section id="about-soul" style="text-align:left; line-height:1.8; color:#ccc;">
     <h2 style="text-align:center;">Beyond a Glimpse: The Soul of Bengal</h2>
-    <p>Welcome to <strong>Ek Jholoke Kolkata</strong>, a digital sanctuary for the timeless charm of Bengal. Kolkata is more than a location; it is a living emotion. We document the heritage of the 23 districts of West Bengal, from the peaks of Darjeeling to the wild Sunderbans.</p>
+    <p>Welcome to <strong>Ek Jholoke Kolkata</strong>, a digital sanctuary for the timeless charm of Bengal. Kolkata is more than a location; it is a living emotion. From vintage trams in the North to the modern skylines of the East, every corner tells a story of resilience and art. We document the "Adda" at Coffee House, the grandeur of 'Bonedi Bari' Pujas, and the simple magic of tea in a clay 'bhar'.</p>
+    <p>Our journey spans the <strong>23 districts of West Bengal</strong>. From the misty peaks of Darjeeling and the ruins of Malda to the red soil of Birbhum and the wild Sunderbans, we capture the diverse tapestry of our heritage. We celebrate Bankura’s terracotta, Murshidabad’s silk, and the coastal beauty of Medinipur, serving as your window into the heart of Bengal.</p>
+</section>
+
+<section id="facts">
+    <h2>Quick Facts About Kolkata</h2>
+    <div class="grid">
+        <div class="card"><h3>Founded</h3><p>1690</p></div>
+        <div class="card"><h3>Population</h3><p>14+ Million</p></div>
+        <div class="card"><h3>Famous For</h3><p>Durga Puja & Culture</p></div>
+    </div>
 </section>
 
 <section id="didyouknow">
     <h2>Did You Know?</h2>
-    <div class="card" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
-        <p id="factText" style="transition: opacity 0.5s ease; font-size: 1.1rem; color: #bbb;"></p>
+    <div class="card" style="min-height: 220px; display: flex; align-items: center; justify-content: center;">
+        <p id="factText" style="transition: opacity 0.5s ease; line-height: 1.6; padding: 10px; font-size: 1.1rem; color: #bbb;"></p>
+    </div>
+</section>
+
+<script>
+const facts = [
+    "Kolkata's journey began in 1690 when Job Charnock combined Sutanuti, Gobindapur, and Kalikata. Today, it stands as a testament to centuries of evolution, blending colonial majesty with modern vibrancy.",
+    "The Victoria Memorial stands as a white marble dream in the heart of the city. Built to commemorate Queen Victoria, it now serves as a museum housing a vast collection of British Raj remnants.",
+    "Howrah Bridge, or Rabindra Setu, is the true lifeline of the city. This cantilever marvel carries nearly a million people daily across the Hooghly River without a single nut or bolt holding its steel together.",
+    "North Kolkata is where the old soul lives. From the crumbling 'bonedi bari' to the smell of old paper on College Street, this area preserves the 19th-century charm of the Indian Renaissance.",
+    "Durga Puja in Kolkata is not just a festival; it is a global art phenomenon. UNESCO has recognized it as an Intangible Cultural Heritage, turning the city into a massive public art gallery.",
+    "The culinary scene of Kolkata is a paradise for food lovers. From world-famous Rasgulla to the spicy street-side Phuchka, every bite offers a flavor perfected over generations in Bengal.",
+    "College Street is the intellectual heart of the city. Known as 'Boi Para', it is home to legendary institutions and the Indian Coffee House, where great minds once spent hours in 'Adda'.",
+    "The Kolkata Tram system is a living museum. As the only operating tram network in India, these slow-moving coaches offer a nostalgic ride through historic intersections frozen in time.",
+    "The Hooghly River defines the city's geography. Along its banks, ancient ghats like Prinsep Ghat offer a serene escape to witness the sunrise over the water or the busy flower market.",
+    "Park Street remains the epicenter of nightlife. Once famous for jazz clubs, it continues to be the destination for Christmas celebrations and legendary meals at iconic spots like Peter Cat.",
+    "The Indian Museum, established in 1814, is the largest and oldest in the country. Its galleries contain everything from Egyptian mummies to Ashoka pillars, vital for understanding history.",
+    "South Park Street Cemetery is a hauntingly beautiful reminder of the colonial era. Its moss-covered tombs tell the silent stories of European pioneers who lived and died in old Calcutta.",
+    "The Maidan is known as the 'Lungs of Kolkata'. This vast green expanse is where the city plays, gathers for rallies, and finds peace under the shadow of Fort William.",
+    "Kumartuli is the potters' colony where divinity is born. Artisans mold Ganges clay into magnificent idols of Goddess Durga, a tradition that has remained unchanged for over 300 years.",
+    "The Asiatic Society, founded in 1784, served as the foundation for oriental research in India, housing rare manuscripts that bridge the gap between ancient wisdom and modern research.",
+    "Kolkata's yellow taxis are a global icon. These Ambassador cars are as much a part of the city's identity as the bridge, offering a rugged way to navigate the chaotic streets.",
+    "The city’s Metro Railway, inaugurated in 1984, was India’s first underground transit system. It remains a clean and efficient way to connect the North to the booming South.",
+    "Dakshineswar Kali Temple is a spiritual beacon on the riverbank. Built by Rani Rashmoni, it was the workplace of Sri Ramakrishna and remains a site of profound devotion.",
+    "The Marble Palace in North Kolkata is a private residence filled with original paintings by Rubens. It is a stunning example of how the Bengali elite embraced global art in the 1800s.",
+    "Belur Math stands for universal religion. Its architecture blends elements of a church, mosque, and temple, reflecting the message of harmony preached by Swami Vivekananda.",
+    "The National Library, housed in the Belvedere Estate, is the largest in India. It is a sanctuary for scholars, holding millions of books that preserve Indian collective knowledge.",
+    "Prinsep Ghat, built in 1841, is a romantic spot with white Gothic columns. Looking out toward the Vidyasagar Setu, it’s a favorite for sunset boat rides on the Ganges.",
+    "The Kalighat Temple is one of the 51 Shakti Peethas. This ancient site is where the city's name is said to have derived, and it remains a bustling center of faith today.",
+    "The Bengal Renaissance changed the social fabric of India from these streets. Figures like Raja Ram Mohan Roy fought for women's rights and modern education in this very city.",
+    "Eden Gardens is a colosseum of cricket. Known for its electrifying atmosphere, it has witnessed historic sports moments, making it a bucket-list destination for every fan.",
+    "Chinatown at Tiretta Bazaar is a unique cultural pocket. As India's only original Chinatown, it offers authentic Chinese breakfast, reflecting the city’s history as a melting pot.",
+    "Mother House is a place of profound service. This is where Mother Teresa lived and served the poor, and her tomb remains a place of prayer for visitors seeking inspiration.",
+    "The Birla Planetarium is the largest in Asia. Its dome provides generations of students with their first look into the wonders of the cosmos and the science of the stars.",
+    "Sovabazar Rajbari is the seat of the Shobhabazar Royal Family. It was here that the first community Durga Puja was organized, setting the trend for grand public celebrations.",
+    "Ek Jholoke Kolkata is our humble attempt to capture this vastness. From the 23 districts to the hidden alleys, we document the stories and timeless emotions of the City of Joy.",
+    "The General Post Office (GPO) is an architectural masterpiece with its high dome and majestic pillars, standing on the site of the first Fort William.",
+    "Writers' Building, with its Greco-Roman style, served as the secretariat of the West Bengal government and is a symbol of administrative history.",
+    "The Great Banyan Tree in the Botanical Garden is over 250 years old and looks like an entire forest due to its massive prop roots.",
+    "St. Paul's Cathedral is the first Anglican cathedral built in the overseas territory of the British Empire, known for its Indo-Gothic architecture.",
+    "The city is home to the oldest polo club in the world, the Calcutta Polo Club, established in 1862.",
+    "Kolkata is the only city in India where you can still see manually pulled rickshaws, a controversial yet iconic part of the city's fabric.",
+    "The Calcutta High Court is the oldest High Court in India, built to resemble the Cloth Hall in Ypres, Belgium.",
+    "The Royal Calcutta Golf Club, founded in 1829, is the oldest golf club outside the United Kingdom.",
+    "Jorasanko Thakur Bari is the ancestral home of Rabindranath Tagore and is now a museum dedicated to his life and the Tagore family.",
+    "The Salt Lake Stadium is the largest stadium in India by capacity and a hub for the city’s deep-rooted passion for football.",
+    "The Netaji Bhawan is the ancestral house of Subhas Chandra Bose, preserved as a museum chronicling his role in the Indian freedom struggle.",
+    "Kolkata’s book publishing hub, College Street, is the second-largest market for second-hand books in the world.",
+    "The city was the first in India to have a functional electricity supply, which started in 1899.",
+    "Mograhat is known for its massive markets, reflecting the agricultural and commercial strength of the South 24 Parganas district.",
+    "The Sunderbans, a short journey from the city, is the world's largest mangrove forest and a UNESCO World Heritage site.",
+    "Kolkata hosts the largest Book Fair in the world in terms of footfall, reflecting the city's literary obsession.",
+    "The Academy of Fine Arts is one of the oldest and most significant art societies in India, hosting works by legendary artists.",
+    "Metcalfe Hall, modeled after the Temple of the Winds in Athens, served as the first public library in the city.",
+    "The Nakhoda Mosque is the principal mosque of Kolkata, inspired by Akbar's tomb in Sikandra.",
+    "The M.P. Birla Planetarium is locally known as 'Taramandal' and is a landmark for science education in Eastern India.",
+    "Kolkata is the headquarters of the Geological Survey of India, one of the oldest organizations of its kind.",
+    "The city’s leather industry at Tangra is world-renowned, primarily managed by the local Chinese community.",
+    "Baghbazar Ghat is a historic riverfront where the wealthy 'Babus' of the 19th century used to spend their evenings.",
+    "The Tollygunge Club is a unique country club that was once an 18th-century garden house.",
+    "Kolkata’s 'Handmade Paper' industry in Ward 46 continues to preserve traditional recycling and crafting methods.",
+    "The iconic 'Flurys' on Park Street has been serving European-style tea and cakes since 1927.",
+    "The Alipore Zoo is the oldest formally stated zoological park in India and home to a wide variety of species.",
+    "The Vidyasagar Setu is the longest cable-stayed bridge in India, connecting Kolkata to the industrial city of Howrah.",
+    "The Town Hall, built in 1813, was a center for social gatherings for the European elite during the Raj.",
+    "The Pareshnath Jain Temple is a cluster of four temples famous for its intricate glass-work and beautiful gardens.",
+    "Kolkata is the birthplace of the 'Nabadwip-style' sweets, which have influenced Bengali desserts for centuries.",
+    "The Kolkata International Film Festival is one of the most prestigious cinema events in Asia.",
+    "Rabindra Sadan is the premier center for Bengali culture, theater, and performing arts.",
+    "Nandan is a government-sponsored film and cultural center that serves as the heart of the city’s cinema lovers.",
+    "The 'Kathi Roll' was invented at Nizam’s in Kolkata, originally to help British patrons eat kebabs without getting their hands dirty.",
+    "The city's 'Bonedi Bari' Durga Pujas are private family celebrations that have been held for over 200 to 300 years.",
+    "Kolkata has the highest number of Nobel Laureates associated with a single city in India.",
+    "The Armenian Church of the Holy Nazareth, built in 1724, is the oldest church in Kolkata.",
+    "The Maghen David Synagogue is a stunning example of Italian Renaissance style in the heart of the city's Jewish quarter.",
+    "The Curzon Currents, an old newspaper, highlights the city's long-standing tradition of independent journalism.",
+    "The Birla Industrial & Technological Museum was the first science museum in India, founded in 1959.",
+    "Kolkata's 'Bhasa Andolan' roots are deep, celebrating the Bengali language as a pillar of identity.",
+    "The city’s football rivalry between Mohun Bagan and East Bengal is one of the oldest and fiercest in Asia.",
+    "The Tipu Sultan Mosque is a major landmark of Islamic architecture, built by the youngest son of Tipu Sultan.",
+    "The Shobhabazar Rajbari was the site of the first organized Durga Puja by Lord Clive in 1757.",
+    "The Portuguese Church in Murgihata is a silent witness to the early European presence in Bengal.",
+    "The 'Standard Chartered' building in BBD Bagh is one of the finest examples of Victorian commercial architecture.",
+    "Kolkata's 'New Market' or Hogg Market, has survived fires and time to remain a premier shopping destination.",
+    "The city is known as the 'City of Processions' due to its vibrant political and social history.",
+    "Kolkata is the only Indian city with a functional 'River Police' to patrol the vast Hooghly stretch.",
+    "The 'Calcutta Medical College' was the first institute to teach modern medicine in Asia.",
+    "The Bethune College was the first women's college in India, founded to empower women through education.",
+    "The 'Gariahat Market' is the shopping lifeline of South Kolkata, famous for its variety of sarees.",
+    "The 'Dhakuria Lake' or Rabindra Sarobar is a massive artificial lake and a haven for morning walkers.",
+    "The 'Science City' in Kolkata is the largest science center in the Indian subcontinent.",
+    "The 'Aquatica' water park is a favorite summer destination for families in the city.",
+    "The 'Nicco Park' is often called the Disneyland of West Bengal, providing thrill rides for decades.",
+    "Kolkata's 'Handloom' sarees from neighboring districts like Shantipur are world-famous.",
+    "The 'Malancha' market in South 24 Parganas is a major hub for fish exports from the state.",
+    "The 'Canning' town serves as the gateway to the mysterious and beautiful Sunderbans delta.",
+    "The 'Bishnupur' terracotta temples represent the peak of Bengali architectural craftsmanship.",
+    "The 'Darjeeling Himalayan Railway' or Toy Train is a UNESCO site that starts its journey in North Bengal.",
+    "The 'Howrah Station' is the busiest and oldest railway station complex in India.",
+    "Kolkata's 'Eco Park' is the largest urban park in India, featuring replicas of the Seven Wonders of the World.",
+    "The 'Mother's Wax Museum' in Rajarhat is India's answer to Madame Tussauds.",
+    "The 'Biswa Bangla Gate' is a modern architectural icon with a hanging restaurant over the city.",
+    "The 'St. John’s Church' yard contains the mausoleum of Job Charnock, the city's traditional founder.",
+    "The 'Kolkata Gate' symbolizes the city’s transition into a modern global IT and business hub.",
+    "The 'Basusree Cinema' is a historic theater that has screened iconic Bengali films for generations.",
+    "Ek Jholoke Kolkata aims to preserve every shade of this city, from its 1690 roots to its 2026 digital future."
+];
+
+function updateFact() {
+    const factElement = document.getElementById("factText");
+    if(!factElement) return;
+    factElement.style.opacity = 0;
+    
+    setTimeout(() => {
+        const randomFact = facts[Math.floor(Math.random() * facts.length)];
+        factElement.textContent = randomFact;
+        factElement.style.opacity = 1;
+    }, 500);
+}
+
+updateFact();
+setInterval(updateFact, 15000);
+</script>
+
+<section id="timeline">
+    <h2>Mini Timeline of Kolkata</h2>
+    <div class="grid">
+        <div class="card"><h3>1690</h3><p>British establish trading post in the region.</p></div>
+        <div class="card"><h3>1911</h3><p>Capital of British India moved from Kolkata to Delhi.</p></div>
+        <div class="card"><h3>Today</h3><p>Kolkata is known as the cultural capital of India.</p></div>
     </div>
 </section>
 
@@ -198,15 +490,17 @@
     <div class="grid">
         <a href="https://ekjholokekolkata.page.gd/explore.php" class="card explore-card" style="background: url('taxiexplore.jpg');">
             <h3>Heritage</h3>
-            <p>Historic streets & architecture.</p>
+            <p>Victoria Memorial, Howrah Bridge & historic streets.</p>
         </a>
+
         <a href="https://ekjholokekolkata.page.gd/explore.php" class="card explore-card" style="background: url('explorefood.jpg');">
             <h3>Food Culture</h3>
-            <p>The culinary soul of Bengal.</p>
+            <p>Phuchka, Kathi Roll, Coffee House & Bengali sweets.</p>
         </a>
+
         <a href="https://ekjholokekolkata.page.gd/explore.php" class="card explore-card" style="background: url('exploredurga.jpg');">
             <h3>Festivals</h3>
-            <p>Durga Pujo & Traditions.</p>
+            <p>Durga Pujo, Adda & traditions.</p>
         </a>
     </div>
 </section>
@@ -217,53 +511,56 @@
         <a href="https://ekjholokekolkata.page.gd/gallery.php" class="animate-west" style="background: url('gallery9.png');"></a>
         <a href="https://ekjholokekolkata.page.gd/gallery.php" class="animate-north" style="background: url('gallery8.png');"></a>
         <a href="https://ekjholokekolkata.page.gd/gallery.php" class="animate-east" style="background: url('gallery7.png');"></a>
+        
         <a href="https://ekjholokekolkata.page.gd/gallery.php" class="animate-west" style="background: url('gallery6.png');"></a>
         <a href="https://ekjholokekolkata.page.gd/gallery.php" class="animate-fade" style="background: url('gallery5.png');"></a>
         <a href="https://ekjholokekolkata.page.gd/gallery.php" class="animate-east" style="background: url('gallery4.png');"></a>
+        
         <a href="https://ekjholokekolkata.page.gd/gallery.php" class="animate-west" style="background: url('gallery3.png');"></a>
         <a href="https://ekjholokekolkata.page.gd/gallery.php" class="animate-south" style="background: url('gallery2.png');"></a>
         <a href="https://ekjholokekolkata.page.gd/gallery.php" class="animate-east" style="background: url('gallery1.png');"></a>
     </div>
 </section>
 
+<!-- HIDDEN ASSETS FOR SEARCH INDEXING -->
+<div style="display: none;">
+    <img src="search-heritagetrail.jpg" alt="Ek Jholoke Kolkata - Heritage Trail and Historic Monuments">
+    <img src="search-culinarysoul.jpg" alt="Ek Jholoke Kolkata - Culinary Soul and Bengali Street Food">
+    <img src="search-hidden.jpg" alt="Ek Jholoke Kolkata - Hidden Gems of West Bengal">
+</div>
+
+<script>
+const observerOptions = { threshold: 0.2 };
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const cards = entry.target.querySelectorAll('a');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('show-card');
+                }, index * 150); 
+            });
+            observer.unobserve(entry.target); 
+        }
+    });
+}, observerOptions);
+
+const galleryElement = document.querySelector('.gallery');
+if(galleryElement) observer.observe(galleryElement);
+</script>
+
 <footer>
     <div class="footer-container">
-        <div class="footer-text">© 2026 <span>Ek Jholoke Kolkata</span>. Archive by Avijit Sardar.</div>
+        <div class="footer-text">© 2026 <span>Ek Jholoke Kolkata</span>. All Rights Reserved.</div>
         <div class="social-icons">
+            <a href="wp.html"><i class="fab fa-whatsapp"></i></a>
             <a href="https://www.instagram.com/ek_jholoke_kolkata/" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/profile.php?id=61556632556404" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="mailto:ekjholokekolkata@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
     </div>
 </footer>
-
-<script>
-// FACT ENGINE
-const facts = ["Howrah Bridge carries 1M people daily without a single bolt.", "Durga Puja is a UNESCO Intangible Heritage.", "College Street is the 2nd largest second-hand book market.", "The Great Banyan Tree is over 250 years old."];
-function updateFact() {
-    const el = document.getElementById("factText");
-    if(!el) return;
-    el.style.opacity = 0;
-    setTimeout(() => {
-        el.textContent = facts[Math.floor(Math.random() * facts.length)];
-        el.style.opacity = 1;
-    }, 500);
-}
-updateFact(); setInterval(updateFact, 10000);
-
-// SCROLL ANIMATION
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.querySelectorAll('a').forEach((card, i) => {
-                setTimeout(() => card.classList.add('show-card'), i * 150);
-            });
-        }
-    });
-}, { threshold: 0.2 });
-const gal = document.querySelector('.gallery');
-if(gal) observer.observe(gal);
-</script>
 
 </body>
 </html>
