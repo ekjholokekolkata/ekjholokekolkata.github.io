@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon | Ek Jholoke Kolkata</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* BASE STYLES */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #000000, #0d0d0d);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+header {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    z-index: 999;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+/* HAMBURGER MENU ICON (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 15px;
+    left: 20px; 
+    font-size: 1.6rem;
+    color: white; 
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 5px 15px;
+    font-size: 0.9rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* THE RED HOVER LINE */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #E50914;
+    transition: 0.4s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* --- MOBILE RESPONSIVE NAV BAR (OLD STYLE) --- */
+@media (max-width: 850px) {
+    .menu-toggle {
+        display: block; 
+    }
+    
+    nav {
+        display: none; 
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        margin-top: 15px;
+        padding: 10px 0;
+        border-top: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    nav.active {
+        display: flex; 
+    }
+
+    nav a {
+        margin: 12px 0 12px 30px; 
+        padding: 0;
+        font-size: 1.1rem;
+        align-self: flex-start; /* Stops red line from stretching across screen */
+    }
+
+    nav a::after {
+        display: none;
+    }
+}
+
+/* --- BUILDING ANIMATION SECTION --- */
+.construction-wrapper {
+    flex: 1; /* Pushes footer to the bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.gears-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 30px;
+}
+
+.gear-main {
+    font-size: 6rem;
+    color: #ffd700;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: spinRight 6s linear infinite;
+}
+
+.gear-small {
+    font-size: 3.5rem;
+    color: #E50914;
+    position: absolute;
+    bottom: 5px;
+    right: -10px;
+    animation: spinLeft 4s linear infinite;
+}
+
+@keyframes spinRight {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spinLeft {
+    100% { transform: rotate(-360deg); }
+}
+
+.construction-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: 2px;
+    margin: 0 0 10px;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.construction-subtitle {
+    font-size: 1.1rem;
+    color: #aaa;
+    max-width: 500px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+/* Animated Loading Bar */
+.loading-bar {
+    width: 250px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 40px;
+}
+
+.loading-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100px;
+    width: 100px;
+    height: 100%;
+    background: #E50914;
+    box-shadow: 0 0 10px #E50914;
+    animation: slideLoad 2s infinite ease-in-out;
+}
+
+@keyframes slideLoad {
+    0% { left: -100px; }
+    100% { left: 100%; }
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #E50914;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.back-btn:hover {
+    background: transparent;
+    border-color: #E50914;
+    color: #E50914;
+    transform: translateY(-3px);
+}
+
+/* FOOTER */
+footer {
+    background: #0a0a0a;
+    padding: 25px 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-text { font-size: 0.9rem; color: #aaa; }
+footer span { color: #ffd700; }
+
+.social-icons a { 
+    color: white; 
+    margin: 0 12px; 
+    font-size: 1.4rem; 
+    transition: 0.3s; 
+}
+
+.social-icons a:hover { 
+    color: #E50914; 
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <!-- Hamburger Icon: Left Aligned and White -->
+    <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="logo">EK JHOLOKE KOLKATA</div>
+    
+    <!-- ID Added to Nav -->
+    <nav id="nav-menu">
+        <a href="https://ekjholokekolkata.github.io/">Home</a>
+        <a href="about.php">About</a>
+        <a href="explore.php">Explore</a>
+        <a href="featured.php">Featured</a>
+        <a href="feed.php">Feed</a>
+        <a href="gallery.php">Gallery</a>
+        <a href="community.php">Community</a>
+        <a href="acchivement.php">Recognitions</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<!-- COMING SOON / BUILDING SECTION -->
+<div class="construction-wrapper">
+    <div class="gears-container">
+        <i class="fas fa-cog gear-main"></i>
+        <i class="fas fa-cog gear-small"></i>
+    </div>
+    
+    <h1 class="construction-title">BUILDING IN PROGRESS</h1>
+    <p class="construction-subtitle">We are currently crafting something awesome behind the scenes. Please come back later to check out this feature!</p>
+    
+    <div class="loading-bar"></div>
+    
+    <a href="https://ekjholokekolkata.github.io/" class="back-btn"><i class="fas fa-arrow-left"></i> RETURN TO HOME</a>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-text">© 2026 <span>Ek Jholoke Kolkata</span>. All Rights Reserved.</div>
+        <div class="social-icons">
+            <a href="wp.html"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/ek_jholoke_kolkata/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61556632556404&name" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:ekjholokekolkata@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // --- OLD MOBILE MENU TOGGLE LOGIC ---
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (mobileMenu && navMenu) {
+        mobileMenu.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            // Changes the icon from Hamburger to an 'X' when open
+            let icon = this.querySelector('i');
+            if(icon.classList.contains('fa-bars')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>
