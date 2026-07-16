@@ -134,6 +134,18 @@
 
     .logo{font-size:1.6rem;font-weight:bold;color:#ffd700}
 
+    /* HAMBURGER MENU ICON (Hidden on Desktop) */
+    .menu-toggle {
+        display: none;
+        position: absolute;
+        top: 15px;
+        left: 20px; 
+        font-size: 1.6rem;
+        color: white; 
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
     nav{margin-top:10px}
 
     nav a{
@@ -142,6 +154,7 @@
     margin:5px 15px;
     font-size:0.9rem;
     position:relative;
+    display: inline-block;
     }
 
     nav a::after{
@@ -156,6 +169,37 @@
     }
 
     nav a:hover::after{width:100%}
+
+    /* --- MOBILE RESPONSIVE NAV BAR (OLD STYLE) --- */
+    @media (max-width: 850px) {
+        .menu-toggle {
+            display: block; 
+        }
+        
+        nav {
+            display: none; 
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.95);
+            margin-top: 15px;
+            padding: 10px 0;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        nav.active {
+            display: flex; 
+        }
+
+        nav a {
+            margin: 12px 0 12px 30px; 
+            padding: 0;
+            font-size: 1.1rem;
+            align-self: flex-start; /* Stops red line from stretching across screen */
+        }
+
+        nav a::after {
+            display: none;
+        }
+    }
 
     .hero{
     height:100vh;
@@ -320,8 +364,16 @@
 </div>
 
 <header>
+    <!-- Hamburger Icon: Left Aligned and White -->
+    <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+    </div>
+
     <div class="logo">Ek Jholoke Kolkata</div>
-    <nav><a href="https://ekjholokekolkata.github.io/">Home</a>
+    
+    <!-- ID Added to Nav -->
+    <nav id="nav-menu">
+        <a href="https://ekjholokekolkata.github.io/">Home</a>
         <a href="https://ekjholokekolkata.page.gd/about.php">About</a>
         <a href="https://ekjholokekolkata.page.gd/explore.php">Explore</a>
         <a href="https://ekjholokekolkata.page.gd/featured.php">Featured</a>
@@ -331,7 +383,7 @@
         <a href="https://ekjholokekolkata.page.gd/acchivement.php">Recognitions</a>
         <a href="https://ekjholokekolkata.page.gd/contact.html">Contact</a>
         <a href="https://ekjholokekolkata.github.io/help.html">Help</a>
-</nav>
+    </nav>
 </header>
 
 <section class="hero">
@@ -557,6 +609,25 @@ const observer = new IntersectionObserver((entries) => {
 
 const galleryElement = document.querySelector('.gallery');
 if(galleryElement) observer.observe(galleryElement);
+
+// --- OLD MOBILE MENU TOGGLE LOGIC ---
+document.addEventListener("DOMContentLoaded", function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (mobileMenu && navMenu) {
+        mobileMenu.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            // Changes the icon from Hamburger to an 'X' when open
+            let icon = this.querySelector('i');
+            if(icon.classList.contains('fa-bars')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+    }
+});
 </script>
 
 <footer>
