@@ -235,6 +235,17 @@
 
     .btn:hover{background:#b20710;transform:scale(1.05)}
 
+    /* Watermark styling */
+    .hero-watermark {
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+        z-index: 3;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8); /* White, slightly translucent */
+        pointer-events: none; /* User can click through it */
+    }
+
     .grid{display:grid;grid-template-columns:1fr;gap:25px}
 
     .card{
@@ -392,6 +403,8 @@
         <p>Experience Kolkata through culture, stories & timeless emotion.</p>
         <a href="#explore" class="btn">Explore Now</a>
     </div>
+    <!-- Watermark Added Here -->
+    <div class="hero-watermark">© Avijit Sardar</div>
 </section>
 
 <!-- THE SOUL SECTION -->
