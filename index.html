@@ -207,7 +207,10 @@
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    background:url('howrahbridge.jpg') center/cover no-repeat;
+    /* Static background removed - will be set by JS based on time */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     position:relative;
     }
 
@@ -602,6 +605,39 @@ setInterval(updateFact, 15000);
     <img src="search-culinarysoul.jpg" alt="Ek Jholoke Kolkata - Culinary Soul and Bengali Street Food">
     <img src="search-hidden.jpg" alt="Ek Jholoke Kolkata - Hidden Gems of West Bengal">
 </div>
+
+<!-- New script for Time-based Hero Images -->
+<script>
+function setHeroImageByTime() {
+    const heroSection = document.querySelector('.hero');
+    if (!heroSection) return;
+
+    // Get current hour based on user's local time (0 to 23)
+    const currentHour = new Date().getHours(); 
+    let imageUrl = '';
+
+    // Logic based on requested feature:
+    // Defined standard times for logic implementation:
+    // Morning/Afternoon (defined standard Morning start till pre-Noon): 5:00 - 11:59
+    if (currentHour >= 5 && currentHour < 12) {
+        imageUrl = 'hero1.jpg'; // Changes from morning to afternoon
+    } 
+    // Afternoon/Dusk (from Noon standard 12:00 till pre-standard Nightfall): 12:00 - 17:59
+    else if (currentHour >= 12 && currentHour < 18) {
+        imageUrl = 'hero2.jpg'; // Changes from noon to night
+    } 
+    // Night/Nightfall till Morning (Standard 18:00 through midnight till pre-standard Morning): 18:00 - 4:59
+    else {
+        imageUrl = 'hero3.jpg'; // Changes from night standard through next morning standard
+    }
+
+    // Apply the dynamic background image
+    heroSection.style.backgroundImage = `url('${imageUrl}')`;
+}
+
+// Run function immediately upon loading content
+document.addEventListener('DOMContentLoaded', setHeroImageByTime);
+</script>
 
 <script>
 const observerOptions = { threshold: 0.2 };
