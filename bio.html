@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ek Jholoke Kolkata | Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --card-inner: #050505;
+            --accent-1: #00f2ff;
+            --accent-2: #7000ff;
+            --accent-3: #ff0055;
+            --accent-4: #00ff88;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent; /* Removes the blue box on tap */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND BUBBLES (Optimized for Mobile) --- */
+        .bg-particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(4px);
+            opacity: 0.5;
+            animation: floatUp 10s infinite linear;
+            box-shadow: 0 0 15px currentColor;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) scale(0.5); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-20vh) scale(1.2); opacity: 0; }
+        }
+
+        /* --- THE FLOATING MAIN CARD --- */
+        .main-card {
+            position: relative;
+            width: 92%;
+            max-width: 400px;
+            padding: 40px 20px;
+            border-radius: 35px;
+            background: var(--card-inner);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            /* Floating Breathing Animation */
+            animation: breathe 5s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* --- THE ROTATING BORDER --- */
+        .main-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4), var(--accent-1));
+            animation: rotateBorder 3.5s linear infinite;
+            z-index: -2;
+        }
+
+        .main-card::after {
+            content: '';
+            position: absolute;
+            background: var(--card-inner);
+            inset: 4px; 
+            border-radius: 31px;
+            z-index: -1;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- PROFILE IMAGE WITH STORY RING --- */
+        .profile-wrapper {
+            position: relative;
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+
+        .profile-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: rotateBorder 4s linear infinite;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #fff, var(--accent-1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            color: #aaa;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        /* --- MOBILE-OPTIMIZED LINKS --- */
+        .links-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            opacity: 0;
+            animation: slideIn 0.5s forwards;
+        }
+
+        /* Haptic feedback for touch */
+        .link-card:active {
+            transform: scale(0.95);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .link-card i {
+            font-size: 1.4rem;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: scale(0.8) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Delay for the "Pop-in" effect */
+        .link-card:nth-child(1) { animation-delay: 0.1s; }
+        .link-card:nth-child(2) { animation-delay: 0.2s; }
+        .link-card:nth-child(3) { animation-delay: 0.3s; }
+        .link-card:nth-child(4) { animation-delay: 0.4s; }
+        .link-card:nth-child(5) { animation-delay: 0.5s; }
+        .link-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Icon Colors */
+        .fa-instagram { color: #ff0055; }
+        .fa-facebook { color: #1877F2; }
+        .fa-whatsapp { color: #25D366; }
+        .fa-globe { color: #00f2ff; }
+        .fa-camera-retro { color: #ffb703; }
+        .fa-images { color: #00ff88; }
+
+        footer {
+            margin-top: 30px;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-particles" id="particles"></div>
+
+    <div class="main-card">
+        <div class="profile-wrapper">
+            <img src="fav.png" alt="Ek Jholoke Kolkata" class="profile-img">
+        </div>
+        
+        <h1>Ek Jholoke Kolkata</h1>
+        <p class="tagline">বাঙালিয়ানা 🥰</p>
+
+        <div class="links-container">
+            <a href="https://ekjholokekolkata.page.gd/" class="link-card" target="_blank">
+                <i class="fas fa-globe"></i> Visit Website
+            </a>
+            <a href="https://www.instagram.com/ek_jholoke_kolkata/" class="link-card" target="_blank">
+                <i class="fab fa-instagram"></i> Follow Instagram
+            </a>
+            <a href="https://www.facebook.com/p/Ek-Jholoke-Kolkata-61556632556404/" class="link-card" target="_blank">
+                <i class="fab fa-facebook"></i> Join Facebook
+            </a>
+            <a href="https://ekjholokekolkata.page.gd/wp.html?i=1" class="link-card" target="_blank">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+            <a href="https://ekjholokekolkata.page.gd/gallery.php" class="link-card" target="_blank">
+                <i class="fas fa-images"></i> Gallery
+            </a>
+            <a href="https://ekjholokekolkata.page.gd/explore.php" class="link-card" target="_blank">
+                <i class="fas fa-camera-retro"></i>Want To Get Featured?    👉 Contribute 
+            </a>
+        </div>
+
+        <footer>ESTD 2021</footer>
+    </div>
+
+    <script>
+        const pContainer = document.getElementById('particles');
+        const colors = ['#00f2ff', '#7000ff', '#ff0055', '#00ff88', '#ffff00', '#ff8800'];
+
+        for (let i = 0; i < 30; i++) { // Slightly fewer particles for mobile performance
+            const dot = document.createElement('div');
+            dot.className = 'particle';
+            const size = Math.random() * 8 + 3 + 'px';
+            dot.style.width = size;
+            dot.style.height = size;
+            dot.style.left = Math.random() * 100 + 'vw';
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            dot.style.backgroundColor = randomColor;
+            dot.style.color = randomColor; 
+            dot.style.animationDuration = Math.random() * 7 + 4 + 's';
+            dot.style.animationDelay = Math.random() * 5 + 's';
+            pContainer.appendChild(dot);
+        }
+    </script>
+</body>
+</html>
