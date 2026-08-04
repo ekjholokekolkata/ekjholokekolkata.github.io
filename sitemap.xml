@@ -1,37 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
+  <!-- Homepage (Fixed the triple slash error here) -->
   <url>
-    <loc>https://ekjholokekolkata.github.io///</loc>
-    <lastmod>2026-05-06</lastmod>
+    <loc>https://ekjholokekolkata.github.io/</loc>
+    <lastmod>2026-08-05</lastmod>
     <priority>1.00</priority>
   </url>
 
   <!-- About Page -->
   <url>
     <loc>https://ekjholokekolkata.page.gd/about.php</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <priority>0.80</priority>
   </url>
 
   <!-- Explore Page -->
   <url>
     <loc>https://ekjholokekolkata.page.gd/explore.php</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-08-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Featured Page -->
+  <url>
+    <loc>https://ekjholokekolkata.page.gd/featured.php</loc>
+    <lastmod>2026-08-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Feed Page -->
+  <url>
+    <loc>https://ekjholokekolkata.page.gd/feed.php</loc>
+    <lastmod>2026-08-05</lastmod>
     <priority>0.80</priority>
   </url>
 
   <!-- Gallery Page -->
   <url>
     <loc>https://ekjholokekolkata.page.gd/gallery.php</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-08-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Community Page -->
+  <url>
+    <loc>https://ekjholokekolkata.page.gd/community.php</loc>
+    <lastmod>2026-08-05</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Recognitions Page -->
+  <url>
+    <loc>https://ekjholokekolkata.page.gd/achievements.php</loc>
+    <lastmod>2026-08-05</lastmod>
     <priority>0.70</priority>
   </url>
 
   <!-- Contact Page -->
   <url>
     <loc>https://ekjholokekolkata.page.gd/contact.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <priority>0.50</priority>
+    <lastmod>2026-08-05</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Help & Support Page (Crucial for Sitelinks) -->
+  <url>
+    <loc>https://ekjholokekolkata.github.io/help.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Important Links Page (Crucial for Sitelinks) -->
+  <url>
+    <loc>https://ekjholokekolkata.github.io/links.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <priority>0.80</priority>
   </url>
 </urlset>
