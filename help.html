@@ -111,7 +111,7 @@ nav a:hover::after {
 
 /* --- FAQ / HELP SECTION --- */
 .faq-wrapper {
-    flex: 1; /* Pushes footer to the bottom */
+    flex: 1;
     padding: 60px 20px;
     max-width: 900px;
     margin: 0 auto;
@@ -205,34 +205,40 @@ nav a:hover::after {
     background: #000;
 }
 
-.video-container iframe {
+/* Supports both iframes and HTML5 video tags */
+.video-container iframe,
+.video-container video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border: none;
+    object-fit: cover; /* Prevents ugly black bars if ratio is slightly off */
 }
 
 /* PORTRAIT VIDEO (For Mobile Fix) */
 .video-container-portrait {
     position: relative;
     width: 100%;
-    max-width: 300px; /* Constrains width so it looks like a phone on desktop */
-    margin: 0 auto 20px auto; /* Centers the video */
-    aspect-ratio: 9 / 16; /* Standard portrait ratio */
+    max-width: 300px;
+    margin: 0 auto 20px auto;
+    aspect-ratio: 9 / 16;
     border-radius: 8px;
     overflow: hidden;
     background: #000;
 }
 
-.video-container-portrait iframe {
+/* Supports both iframes and HTML5 video tags */
+.video-container-portrait iframe,
+.video-container-portrait video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border: none;
+    object-fit: contain; /* Ensures the whole vertical video stays visible */
 }
 
 /* FOOTER */
@@ -309,8 +315,12 @@ footer span { color: #ffd700; }
             </div>
             <div class="accordion-content">
                 <p style="text-align: center;">Watch this video guide to configure your DNS settings on iOS or Android devices:</p>
+                
                 <div class="video-container-portrait">
-                    <iframe src="mobile.mp4" allowfullscreen></iframe>
+                    <!-- USING HTML5 VIDEO TAG NOW -->
+                    <video controls src="mobile.mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>
@@ -323,8 +333,12 @@ footer span { color: #ffd700; }
             </div>
             <div class="accordion-content">
                 <p>Watch this video guide to configure your DNS settings on Windows or Mac OS:</p>
+                
                 <div class="video-container">
-                    <iframe src="desktop.mp4" allowfullscreen></iframe>
+                     <!-- USING HTML5 VIDEO TAG NOW -->
+                    <video controls src="desktop.mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>
