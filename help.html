@@ -233,16 +233,16 @@ nav a:hover::after {
     outline: none;
 }
 
-/* LOGO OVERLAY STYLE */
+/* LOGO OVERLAY STYLE - MOVED TO LEFT AND MADE SMALLER */
 .video-logo {
     position: absolute;
     top: 10px;
-    right: 15px;
-    width: 35px; /* Little size */
+    left: 15px; /* Moved to the left side */
+    width: 20px; /* Made even smaller / more diminished */
     height: auto;
     z-index: 10; /* Ensures it stays on top of the video */
     pointer-events: none; /* Clicks will pass through to the video controls */
-    opacity: 0.85; /* Slightly transparent so it looks good */
+    opacity: 0.65; /* Lowered opacity to make it less distracting */
     border-radius: 4px;
 }
 
@@ -328,7 +328,7 @@ footer span { color: #ffd700; }
                     <img src="fav.jpg" class="video-logo" alt="Logo">
                     
                     <!-- controlsList="nodownload" disables the download button. oncontextmenu disables right-click save -->
-                    <video controls controlsList="nodownload" oncontextmenu="return false;" src="mobile.mp4.mp4">
+                    <video controls controlsList="nodownload" oncontextmenu="return false;" src="mobile.mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -350,7 +350,7 @@ footer span { color: #ffd700; }
                     <img src="fav.jpg" class="video-logo" alt="Logo">
                     
                     <!-- controlsList="nodownload" disables the download button. oncontextmenu disables right-click save -->
-                    <video controls controlsList="nodownload" oncontextmenu="return false;" src="desktop.mp4.mp4">
+                    <video controls controlsList="nodownload" oncontextmenu="return false;" src="desktop.mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
