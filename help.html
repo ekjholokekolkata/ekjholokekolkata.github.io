@@ -233,6 +233,19 @@ nav a:hover::after {
     outline: none;
 }
 
+/* LOGO OVERLAY STYLE */
+.video-logo {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    width: 35px; /* Little size */
+    height: auto;
+    z-index: 10; /* Ensures it stays on top of the video */
+    pointer-events: none; /* Clicks will pass through to the video controls */
+    opacity: 0.85; /* Slightly transparent so it looks good */
+    border-radius: 4px;
+}
+
 
 /* FOOTER */
 footer {
@@ -311,7 +324,11 @@ footer span { color: #ffd700; }
                 
                 <!-- Fixed wrapper for mobile video -->
                 <div class="video-box-mobile">
-                    <video controls src="mobile.mp4.mp4">
+                    <!-- Fav.jpg Logo -->
+                    <img src="fav.jpg" class="video-logo" alt="Logo">
+                    
+                    <!-- controlsList="nodownload" disables the download button. oncontextmenu disables right-click save -->
+                    <video controls controlsList="nodownload" oncontextmenu="return false;" src="mobile.mp4.mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -329,7 +346,11 @@ footer span { color: #ffd700; }
                 
                 <!-- Fixed wrapper for desktop video -->
                 <div class="video-box-desktop">
-                    <video controls src="desktop.mp4.mp4">
+                    <!-- Fav.jpg Logo -->
+                    <img src="fav.jpg" class="video-logo" alt="Logo">
+                    
+                    <!-- controlsList="nodownload" disables the download button. oncontextmenu disables right-click save -->
+                    <video controls controlsList="nodownload" oncontextmenu="return false;" src="desktop.mp4.mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -398,16 +419,29 @@ document.addEventListener("DOMContentLoaded", function() {
         header.addEventListener('click', function() {
             this.classList.toggle('active');
             const content = this.nextElementSibling;
+            const video = content.querySelector('video'); // Finds the video inside this specific accordion section
             
             if (content.style.maxHeight) {
+                // SECTION IS CLOSING
                 content.style.maxHeight = null;
                 content.style.paddingTop = null;
                 content.style.paddingBottom = null;
+                
+                // Auto-pause video when minimized
+                if(video) {
+                    video.pause();
+                }
+                
             } else {
-                // Expanding logic - safely accounts for dynamic box sizes
+                // SECTION IS OPENING
                 content.style.maxHeight = content.scrollHeight + 150 + "px";
                 content.style.paddingTop = "10px";
                 content.style.paddingBottom = "20px";
+                
+                // Auto-play video when opened
+                if(video) {
+                    video.play();
+                }
             }
         });
     });
