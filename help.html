@@ -166,7 +166,6 @@ nav a:hover::after {
     transform: rotate(180deg);
 }
 
-/* Allow max-height to handle larger content dynamically */
 .accordion-content {
     max-height: 0;
     overflow: hidden;
@@ -195,21 +194,45 @@ nav a:hover::after {
     text-decoration: underline;
 }
 
-/* NATIVE VIDEO STYLING (Fix for black bars) */
-.native-video {
+
+/* --- NEW FIXED VIDEO CONTAINERS --- */
+
+/* Desktop Container (Force 16:9) */
+.video-box-desktop {
+    position: relative;
     width: 100%;
-    height: auto;
+    aspect-ratio: 16 / 9; /* Creates a perfect widescreen box */
+    background: #000;
     border-radius: 8px;
-    background-color: #000;
-    display: block;
-    margin: 0 auto 20px auto;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* Mobile Container (Force 9:16) */
+.video-box-mobile {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 9 / 16; /* Creates a perfect phone screen box */
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto 20px auto; /* Centers the box */
+}
+
+/* Forces the video player to perfectly fill whatever box it is inside */
+.video-box-desktop video,
+.video-box-mobile video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Prevents stretching and cropping */
+    border: none;
     outline: none;
 }
 
-/* Limit the width of the mobile video so it doesn't stretch huge on PC */
-.native-video.portrait {
-    max-width: 300px;
-}
 
 /* FOOTER */
 footer {
@@ -286,10 +309,12 @@ footer span { color: #ffd700; }
             <div class="accordion-content">
                 <p style="text-align: center;">Watch this video guide to configure your DNS settings on iOS or Android devices:</p>
                 
-                <!-- Simplified Video Tag (No Wrapper Div Needed) -->
-                <video class="native-video portrait" controls src="mobile.mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <!-- Fixed wrapper for mobile video -->
+                <div class="video-box-mobile">
+                    <video controls src="mobile.mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
 
@@ -302,10 +327,12 @@ footer span { color: #ffd700; }
             <div class="accordion-content">
                 <p>Watch this video guide to configure your DNS settings on Windows or Mac OS:</p>
                 
-                <!-- Simplified Video Tag (No Wrapper Div Needed) -->
-                <video class="native-video" controls src="desktop.mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <!-- Fixed wrapper for desktop video -->
+                <div class="video-box-desktop">
+                    <video controls src="desktop.mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
 
@@ -372,14 +399,13 @@ document.addEventListener("DOMContentLoaded", function() {
             this.classList.toggle('active');
             const content = this.nextElementSibling;
             
-            // Recalculate max height to account for video sizing dynamically
             if (content.style.maxHeight) {
                 content.style.maxHeight = null;
                 content.style.paddingTop = null;
                 content.style.paddingBottom = null;
             } else {
-                // Expanding logic - uses scrollHeight to dynamically adapt to the video size
-                content.style.maxHeight = content.scrollHeight + 150 + "px"; // Adding extra buffer room just in case
+                // Expanding logic - safely accounts for dynamic box sizes
+                content.style.maxHeight = content.scrollHeight + 150 + "px";
                 content.style.paddingTop = "10px";
                 content.style.paddingBottom = "20px";
             }
