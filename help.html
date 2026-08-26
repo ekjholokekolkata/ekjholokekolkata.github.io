@@ -166,6 +166,7 @@ nav a:hover::after {
     transform: rotate(180deg);
 }
 
+/* Allow max-height to handle larger content dynamically */
 .accordion-content {
     max-height: 0;
     overflow: hidden;
@@ -194,51 +195,20 @@ nav a:hover::after {
     text-decoration: underline;
 }
 
-/* LANDSCAPE VIDEO (For Desktop Fix) */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    overflow: hidden;
-    margin-bottom: 20px;
+/* NATIVE VIDEO STYLING (Fix for black bars) */
+.native-video {
+    width: 100%;
+    height: auto;
     border-radius: 8px;
-    background: #000;
-}
-
-/* Supports both iframes and HTML5 video tags */
-.video-container iframe,
-.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    object-fit: cover; /* Prevents ugly black bars if ratio is slightly off */
-}
-
-/* PORTRAIT VIDEO (For Mobile Fix) */
-.video-container-portrait {
-    position: relative;
-    width: 100%;
-    max-width: 300px;
+    background-color: #000;
+    display: block;
     margin: 0 auto 20px auto;
-    aspect-ratio: 9 / 16;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #000;
+    outline: none;
 }
 
-/* Supports both iframes and HTML5 video tags */
-.video-container-portrait iframe,
-.video-container-portrait video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    object-fit: contain; /* Ensures the whole vertical video stays visible */
+/* Limit the width of the mobile video so it doesn't stretch huge on PC */
+.native-video.portrait {
+    max-width: 300px;
 }
 
 /* FOOTER */
@@ -316,12 +286,10 @@ footer span { color: #ffd700; }
             <div class="accordion-content">
                 <p style="text-align: center;">Watch this video guide to configure your DNS settings on iOS or Android devices:</p>
                 
-                <div class="video-container-portrait">
-                    <!-- USING HTML5 VIDEO TAG NOW -->
-                    <video controls src="mobile.mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+                <!-- Simplified Video Tag (No Wrapper Div Needed) -->
+                <video class="native-video portrait" controls src="mobile.mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
 
@@ -334,12 +302,10 @@ footer span { color: #ffd700; }
             <div class="accordion-content">
                 <p>Watch this video guide to configure your DNS settings on Windows or Mac OS:</p>
                 
-                <div class="video-container">
-                     <!-- USING HTML5 VIDEO TAG NOW -->
-                    <video controls src="desktop.mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+                <!-- Simplified Video Tag (No Wrapper Div Needed) -->
+                <video class="native-video" controls src="desktop.mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
 
@@ -406,12 +372,14 @@ document.addEventListener("DOMContentLoaded", function() {
             this.classList.toggle('active');
             const content = this.nextElementSibling;
             
+            // Recalculate max height to account for video sizing dynamically
             if (content.style.maxHeight) {
                 content.style.maxHeight = null;
                 content.style.paddingTop = null;
                 content.style.paddingBottom = null;
             } else {
-                content.style.maxHeight = content.scrollHeight + "px";
+                // Expanding logic - uses scrollHeight to dynamically adapt to the video size
+                content.style.maxHeight = content.scrollHeight + 150 + "px"; // Adding extra buffer room just in case
                 content.style.paddingTop = "10px";
                 content.style.paddingBottom = "20px";
             }
